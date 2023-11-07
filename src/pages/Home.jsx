@@ -1,36 +1,19 @@
-import { useState, useEffect } from 'react';
-import { getTrendingMovies } from 'services/api';
+import Loader from 'components/Loader/Loader';
+import MoviesList from 'components/MoviesList/MoviesList';
+import { useFetchTrendingMovies } from 'hooks';
+
+import React from 'react';
 
 const Home = () => {
-  const [trendingMovies, setTrendingMovies] = useState([]);
-  const [error, setError] = useState('');
+  const { movies, isLoading, error } = useFetchTrendingMovies();
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const result = await getTrendingMovies();
-      if (result.error) {
-        setError(result.error);
-      } else {
-        setTrendingMovies(result.results);
-      }
-    };
-
-    fetchMovies();
-  }, []);
   return (
-    <div>
-      <h1>Trending today</h1>
-      {error && <p>{error}</p>}
-      {trendingMovies.length > 0 ? (
-        <ul>
-          {trendingMovies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No trending movies found.</p>
-      )}
-    </div>
+    <>
+      {isLoading && <Loader />}
+      {error && <p>Something went wrong</p>}
+      {movies.length > 0 && <MoviesList movies={movies} />}
+    </>
   );
 };
+
 export default Home;
