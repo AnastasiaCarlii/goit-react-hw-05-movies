@@ -1,0 +1,14 @@
+.layoutContainer {
+  text-align: center;
+}
+.navList {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.navItem {
+  margin: 10px 0;
+  font-size: 28px;
+}

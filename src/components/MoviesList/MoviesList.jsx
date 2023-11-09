@@ -5,27 +5,30 @@ import styles from './MoviesList.module.css';
 
 const MoviesList = ({ movies }) => {
   return (
-    <ul className={styles.moviesList}>
-      {movies.map(({ id, title, name, original_title, poster_path }) => (
-        <Link to={`/movies/${id}`} key={id} className={styles.movieLink}>
-          {' '}
-          <li className={styles.movieItem}>
-            <img
-              className={styles.movieImage}
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w300/${poster_path}`
-                  : defaultImg
-              }
-              alt={title || name || original_title}
-            />
-            <p className={styles.movieTitle}>
-              {title || name || original_title}
-            </p>
-          </li>
-        </Link>
-      ))}
-    </ul>
+    <div>
+      <h2 className={styles.trending}>Trending today</h2>
+      <ul className={styles.moviesList}>
+        {movies.map(({ id, title, name, original_title, poster_path }) => (
+          <Link to={`/movies/${id}`} key={id} className={styles.movieLink}>
+            {' '}
+            <li className={styles.movieItem}>
+              <img
+                className={styles.movieImage}
+                src={
+                  poster_path
+                    ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                    : defaultImg
+                }
+                alt={title || name || original_title}
+              />
+              <p className={styles.movieTitle}>
+                {title || name || original_title}
+              </p>
+            </li>
+          </Link>
+        ))}
+      </ul>
+    </div>
   );
 };
 
