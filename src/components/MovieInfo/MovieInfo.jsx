@@ -7,11 +7,15 @@ export const MovieInfo = ({ movieId }) => {
   if (error) return <p> {error}</p>;
   if (!movieDetails)
     return <p>There is no information about this movie, sorry.</p>;
+  const genreNames = movieDetails.genres.map(genre => genre.name);
   return (
     <div>
       {' '}
       <h1>{movieDetails.title}</h1>
+      <h2>Overview</h2>
       <p>{movieDetails.overview}</p>
+      <h3>Genres</h3>
+      <p>{genreNames}</p>
     </div>
   );
 };

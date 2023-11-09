@@ -1,15 +1,17 @@
 import React from 'react';
 import defaultImg from 'img/notFound.png';
 import { Link } from 'react-router-dom';
+import styles from './MoviesList.module.css';
 
 const MoviesList = ({ movies }) => {
   return (
-    <ul>
+    <ul className={styles.moviesList}>
       {movies.map(({ id, title, name, original_title, poster_path }) => (
-        <Link to={`/movies/${id}`} key={id}>
+        <Link to={`/movies/${id}`} key={id} className={styles.movieLink}>
           {' '}
-          <li>
+          <li className={styles.movieItem}>
             <img
+              className={styles.movieImage}
               src={
                 poster_path
                   ? `https://image.tmdb.org/t/p/w300/${poster_path}`
@@ -17,7 +19,9 @@ const MoviesList = ({ movies }) => {
               }
               alt={title || name || original_title}
             />
-            <p>{title || name || original_title}</p>
+            <p className={styles.movieTitle}>
+              {title || name || original_title}
+            </p>
           </li>
         </Link>
       ))}
