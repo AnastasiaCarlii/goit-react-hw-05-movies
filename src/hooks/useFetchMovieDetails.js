@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
 
-export const useFetchMovieDetails = movieId => {
-  const [movieDetails, setMovieDetails] = useState('');
+export const useFetchMovieDetails = () => {
+  const [movieDetails, setMovieDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { movieId } = useParams();
 
   useEffect(() => {
     if (!movieId) return;
 
     const fetchMovieDetails = async () => {
       setIsLoading(true);
-      setError(null);
 
       try {
         const data = await getMovieDetails(movieId);
+
         setMovieDetails(data);
       } catch (e) {
         setError(e.message);
