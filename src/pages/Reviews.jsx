@@ -9,7 +9,7 @@ const Reviews = () => {
   return (
     <>
       {isLoading && <Loader />}
-      {error && <p>something went wrong</p>}
+      {error && <p>Something went wrong, Sorry</p>}
       <ReviewsInfo reviews={reviews} />
     </>
   );

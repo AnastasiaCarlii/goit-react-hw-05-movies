@@ -1,5 +1,6 @@
 import defaultImg from 'img/notFound.png';
 import { Link } from 'react-router-dom';
+import styles from './MovieInfo.module.css';
 
 export const MovieInfo = ({ movieDetails }) => {
   const {
@@ -13,24 +14,31 @@ export const MovieInfo = ({ movieDetails }) => {
   } = movieDetails;
   const allGenres = genres.map(genre => genre.name).join(', ');
   return (
-    <div>
-      <img
-        src={
-          poster_path
-            ? `https://image.tmdb.org/t/p/w300/${poster_path}`
-            : defaultImg
-        }
-        alt={title || original_title}
-      />
-      <div>
-        <h1>{title || original_title}</h1>
-        <p>Дата виходу: {release_date}</p>
-        <p>Оцінка :{vote_average}</p>
-        <h2>Опис фільму{overview}</h2>
-        <p>Жанри:{allGenres}</p>
+    <div className={styles.movieInfoContainer}>
+      <div className={styles.movieInfoTop}>
+        <img
+          className={styles.movieImage}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+              : defaultImg
+          }
+          alt={title || original_title}
+        />
+        <div className={styles.movieDetails}>
+          <h2>{title || original_title}</h2>
+          <p className={styles.reviewTitle}>
+            Movie release date: {release_date}
+          </p>
+          <p className={styles.reviewTitle}>Movie rating: {vote_average}</p>
+          <h2 className={styles.reviewText}>
+            Description of the movie: {overview}
+          </h2>
+          <p className={styles.reviewTitle}>Genres: {allGenres}</p>
+        </div>
       </div>
-      <div>
-        <h2>додаткова інформація</h2>
+      <div className={styles.movieInfoBottom}>
+        <h2>Additional Information</h2>
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
       </div>

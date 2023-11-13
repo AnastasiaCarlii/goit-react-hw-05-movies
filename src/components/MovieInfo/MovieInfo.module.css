@@ -1,0 +1,88 @@
+.movieInfoContainer {
+  max-width: 1200px;
+  margin: auto;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.movieInfoTop {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.movieImage {
+  max-width: 300px;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movieDetails {
+  flex: 1;
+  margin-bottom: 25px;
+}
+
+.movieDetails p {
+  margin: 10px 0;
+  color: #666;
+}
+.goBackButton {
+  display: inline-block;
+  justify-content: center;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #6185ac;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+.movieInfoBottom {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movieInfoBottom h2 {
+  color: #130505;
+  margin-bottom: 20px;
+}
+.movieInfoBottom a {
+  display: inline-block;
+  min-width: 120px;
+  margin: 0 10px;
+  padding: 10px 15px;
+  background-color: #6185ac;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.movieInfoBottom a:hover,
+.goBackButton:hover {
+  background-color: #003975;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: #ffffff;
+}
+.reviewTitle {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.2em;
+}
+.reviewText {
+  color: #666;
+  font-size: 1em;
+}

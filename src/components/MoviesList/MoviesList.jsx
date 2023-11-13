@@ -28,9 +28,9 @@ const MoviesList = ({ movies }) => {
                 }
                 alt={title || name || original_title}
               />
-              <p className={styles.movieTitle}>
+              <h4 className={styles.movieTitle}>
                 {title || name || original_title}
-              </p>
+              </h4>
             </li>
           </Link>
         ))}

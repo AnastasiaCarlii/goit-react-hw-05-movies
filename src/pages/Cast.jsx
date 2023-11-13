@@ -8,7 +8,7 @@ const Cast = () => {
   return (
     <>
       {isLoading && <Loader />}
-      {error && <p>something went wrong</p>}
+      {error && <p>Something went wrong, Sorry</p>}
       <CastInfo cast={cast} />
     </>
   );

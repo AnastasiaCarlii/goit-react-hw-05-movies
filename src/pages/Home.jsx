@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       {isLoading && <Loader />}
-      {error && <p>Something went wrong</p>}
+      {error && <p>Something went wrong, Sorry</p>}
       {movies.length > 0 && <MoviesList movies={movies} />}
     </>
   );
